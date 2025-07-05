@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Acer\\unity\\mindhunt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -23,37 +31,42 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "51eb822f-925f-4ea6-a8d7-fb32a906fda1",
-        "Display": 0,
-        "X": 891,
-        "Y": 35,
-        "Width": 755,
-        "Height": 756,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Player_health.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player_health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player_health.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player_health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player_health.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T15:37:32.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "player_damage.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\player_damage.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\player_damage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T15:36:42.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Health_bar.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Health_bar.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs",
               "RelativeToolTip": "Assets\\Scripts\\Health_bar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T13:31:15.462Z",
               "EditorCaption": ""
