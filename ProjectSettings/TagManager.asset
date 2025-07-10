@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Immortal_Potion
   - Healing_Potion
+  - Background
+  - Coins
   layers:
   - Default
   - TransparentFX
