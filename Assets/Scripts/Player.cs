@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
+    private bool facingRight = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +42,20 @@ public class Player : MonoBehaviour
         if (rb.velocity.x > 0)
         {
             transform.localScale = new Vector3(15f, transform.localScale.y, transform.localScale.z);
+            facingRight = true;
         }
         else if (rb.velocity.x < 0)
         {
             transform.localScale = new Vector3(-15f, transform.localScale.y, transform.localScale.z);
+            facingRight = false;
         }
 
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
+    }
+
+    public bool isFacingRight()
+    {
+        return facingRight;
     }
 }

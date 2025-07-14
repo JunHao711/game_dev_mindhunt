@@ -15,8 +15,10 @@ public class Player_health : MonoBehaviour
     private float immortalCounter;
 
     private SpriteRenderer spriteRenderer;
-    public float blinkInterval = 0.1f;
+    private Animator animator;
 
+    public float blinkInterval = 0.1f;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class Player_health : MonoBehaviour
         current_health = max_health;
         healthbar.setMaxHealth(current_health);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -42,15 +45,27 @@ public class Player_health : MonoBehaviour
         {
             current_health -= damage;
             healthbar.setHealth(current_health);
+
             if (current_health <= 0)
             {
-                gameObject.SetActive(false);
+                StartCoroutine(PlayDeathAnimation());
             }
             else
             {
-                StartCoroutine(Blink());// reset
+                StartCoroutine(Blink());
             }
         }
+    }
+
+    IEnumerator PlayDeathAnimation()
+    {
+        if (isDead) yield break;
+        isDead = true;
+        animator.SetTrigger("Die");
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        gameObject.SetActive(false);
     }
 
     IEnumerator Blink()

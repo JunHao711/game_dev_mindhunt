@@ -8,6 +8,8 @@ TagManager:
   - Healing_Potion
   - Background
   - Coins
+  - Enemy
+  - Box
   layers:
   - Default
   - TransparentFX
