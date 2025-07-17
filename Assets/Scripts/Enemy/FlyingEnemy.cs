@@ -4,35 +4,37 @@ using UnityEngine;
 
 public class FlyingEnemy : Enemy
 {
-    protected float speed = 3f;
+    [Header("Flying Enemy Settings")]
+    public float speed = 3f;
     public float followRange = 6f;
-
-    private Transform player;
     private Vector3 spawnPosition;
 
-    void Start()
+    public override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        base.Start();
         spawnPosition = transform.position;
-
-        currentHealth = maxHealth;
-        // ✅ 你可以不assign enemy_health_bar 和 anim，安全不报错
     }
 
-    void Update()
+    public override void Update()
     {
+        if (currentHealth <= 0) return;
+        if (player == null) return;
+
         float distance = Vector2.Distance(transform.position, player.position);
 
         if (distance <= followRange)
         {
+            // ✅ 追踪玩家
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
+            // ✅ 翻转朝向
             Vector3 scale = transform.localScale;
             scale.x = Mathf.Abs(scale.x) * (player.position.x < transform.position.x ? -1 : 1);
             transform.localScale = scale;
         }
         else
         {
+            // ✅ 回到出生点
             transform.position = Vector3.MoveTowards(transform.position, spawnPosition, speed * Time.deltaTime);
         }
     }
@@ -48,8 +50,9 @@ public class FlyingEnemy : Enemy
 
     public override void Die()
     {
-        // ✅ 完全跳过anim和血条，直接销毁
+        anim.SetBool("isDead", true);
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject);
+        this.enabled = false;
+        Destroy(gameObject, 2f);
     }
 }

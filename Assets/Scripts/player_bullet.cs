@@ -12,6 +12,7 @@ public class player_bullet : MonoBehaviour
 
     private Player playerController;
     private GameObject playerObj;
+    public int damageAmount = 1;
 
     private void Awake()
     {
@@ -64,6 +65,13 @@ public class player_bullet : MonoBehaviour
             {
                 enemy.takeDamage();
             }
+
+            SpawnerTower tower = collision.GetComponent<SpawnerTower>();
+            if (tower != null)
+            {
+                tower.TakeDamage(damageAmount);
+            }
+
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Box"))

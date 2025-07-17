@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Acer\\unity\\mindhunt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\TowerEnemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\TowerEnemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\FlyingEnemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FlyingEnemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,26 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy_health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Enemy_health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Pickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\player_damage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Health_bar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,44 +66,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Enemy_health_bar.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy_health_bar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy_health_bar.cs",
-              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy_health_bar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy_health_bar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TowerEnemy.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\TowerEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TowerEnemy.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\TowerEnemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TowerEnemy.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwCQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T15:39:47.561Z"
+              "WhenOpened": "2025-07-16T15:59:54.81Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "FlyingEnemy.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\FlyingEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\FlyingEnemy.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\FlyingEnemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\FlyingEnemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T15:14:35.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "player_shooting.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_shooting.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\player_shooting.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_shooting.cs",
               "RelativeToolTip": "Assets\\Scripts\\player_shooting.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAC0AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T04:46:55.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T04:46:55.014Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Pickup.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Pickup.cs",
-              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Pickup.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T02:59:32.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Player_health.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player_health.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player_health.cs",
@@ -107,32 +115,56 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "player_bullet.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_bullet.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\player_bullet.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_bullet.cs",
               "RelativeToolTip": "Assets\\Scripts\\player_bullet.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAIBJwB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAEQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T04:59:03.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T04:59:03.886Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAMwH8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T07:12:14.544Z"
+              "WhenOpened": "2025-07-12T07:12:14.544Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "Pickup.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Pickup.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Pickup.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Pickup.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T02:59:32.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Enemy_health_bar.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy_health_bar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy_health_bar.cs",
+              "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Enemy_health_bar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy_health_bar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T15:39:47.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player.cs",
@@ -150,19 +182,19 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\player_damage.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\player_damage.cs",
               "RelativeToolTip": "Assets\\Scripts\\player_damage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T15:36:42.987Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Health_bar.cs",
               "DocumentMoniker": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Health_bar.cs",
               "ToolTip": "C:\\Users\\Acer\\unity\\mindhunt\\Assets\\Scripts\\Health_bar.cs",
               "RelativeToolTip": "Assets\\Scripts\\Health_bar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T13:31:15.462Z"
             }
