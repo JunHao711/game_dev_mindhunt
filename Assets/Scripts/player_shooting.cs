@@ -26,6 +26,7 @@ public class player_shooting : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && shooting)
         {
+
             Shoot();
         }
     }
@@ -33,6 +34,7 @@ public class player_shooting : MonoBehaviour
     private void Shoot()
     {
         anim.SetTrigger("Shoot");
+        AudioManager.Instance.PlaySFX(3);
         StartCoroutine(ShootDelay());
     }
 

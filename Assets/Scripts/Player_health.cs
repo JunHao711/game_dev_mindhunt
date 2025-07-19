@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Player_health : MonoBehaviour
@@ -20,13 +21,15 @@ public class Player_health : MonoBehaviour
     public float blinkInterval = 0.1f;
     private bool isDead = false;
 
+    public GameObject gameoverScreen;
+
     // Start is called before the first frame update
     void Start()
     {
         current_health = max_health;
         healthbar.setMaxHealth(current_health);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); 
 
     }
 
@@ -52,6 +55,7 @@ public class Player_health : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlaySFX(6);
                 StartCoroutine(Blink());
             }
         }
@@ -62,8 +66,11 @@ public class Player_health : MonoBehaviour
         if (isDead) yield break;
         isDead = true;
         animator.SetTrigger("Die");
-
+        AudioManager.Instance.PlaySFX(5);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        if (gameoverScreen != null) gameoverScreen.SetActive(true);
+
 
         gameObject.SetActive(false);
     }
@@ -98,7 +105,7 @@ public class Player_health : MonoBehaviour
         {
             current_health += healthPickupAmount;
             healthbar.setHealth(current_health);
-
+            AudioManager.Instance.PlaySFX(4);
             if (current_health > max_health)
             {
                 current_health = max_health;

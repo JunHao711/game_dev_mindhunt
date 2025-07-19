@@ -29,6 +29,7 @@ public class Pickup : MonoBehaviour
         if (collision.gameObject.tag == "Coins")
         {
             coins += coinAmount;
+            AudioManager.Instance.PlaySFX(0);
             scoreText.text = coins.ToString();
             Destroy(collision.gameObject);
         }

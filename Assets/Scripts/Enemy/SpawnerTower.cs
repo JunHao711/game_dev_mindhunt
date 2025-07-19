@@ -10,8 +10,8 @@ public class SpawnerTower : MonoBehaviour
     private float nextSpawnTime;
 
     [Header("Spawn Position Settings")]
-    public Transform spawnPoint;  // ✅ 可选：刷怪用的位置
-    public Vector3 spawnOffset = new Vector3(0, 1f, 0);  // ✅ 默认往上偏移
+    public Transform spawnPoint;
+    public Vector3 spawnOffset = new Vector3(0, 1f, 0);
 
     [Header("Ground Enemy Patrol Points")]
     public Transform groundPointA;
@@ -22,6 +22,10 @@ public class SpawnerTower : MonoBehaviour
     private int currentHealth;
     public Enemy_health_bar healthBar;
 
+    [Header("Spawn Limit Settings")]
+    public int maxEnemies = 5;  // ✅ 最大生成数量
+    private int currentEnemyCount = 0;  // ✅ 当前已生成
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -30,7 +34,7 @@ public class SpawnerTower : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= nextSpawnTime)
+        if (currentEnemyCount < maxEnemies && Time.time >= nextSpawnTime)
         {
             SpawnEnemy();
             nextSpawnTime = Time.time + spawnCooldown;
@@ -42,13 +46,20 @@ public class SpawnerTower : MonoBehaviour
         Vector3 spawnPos = (spawnPoint != null) ? spawnPoint.position : transform.position + spawnOffset;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
 
-        // ✅ 生成GroundEnemy时，重设pointA、pointB
         GroundEnemy groundEnemy = newEnemy.GetComponent<GroundEnemy>();
         if (groundEnemy != null && groundPointA != null && groundPointB != null)
         {
             groundEnemy.pointA = groundPointA;
             groundEnemy.pointB = groundPointB;
         }
+
+        currentEnemyCount++; // ✅ 生成后+1
+    }
+
+    public void EnemyDied()
+    {
+        currentEnemyCount--;
+        if (currentEnemyCount < 0) currentEnemyCount = 0;
     }
 
     public void TakeDamage(int damage)

@@ -13,7 +13,6 @@ public class GroundEnemy : Enemy
 
     private Vector3 currentTarget;
     private bool isAttacking = false;
-    private bool isChasing = false;
     private bool isDead = false;
 
     public override void Start()
@@ -40,14 +39,12 @@ public class GroundEnemy : Enemy
         {
             anim.SetBool("isAttacking", true);
             isAttacking = true;
-            isChasing = false;
             sr.flipX = player.position.x < transform.position.x;
         }
         else if (distance <= followPlayerRange)
         {
             anim.SetBool("isAttacking", false);
             isAttacking = false;
-            isChasing = true;
             currentTarget = new Vector3(player.position.x, transform.position.y, transform.position.z);
             sr.flipX = player.position.x < transform.position.x;
         }
@@ -55,7 +52,6 @@ public class GroundEnemy : Enemy
         {
             anim.SetBool("isAttacking", false);
             isAttacking = false;
-            isChasing = false;
             PatrolLogic();
         }
 

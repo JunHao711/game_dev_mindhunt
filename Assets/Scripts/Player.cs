@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,48 +11,56 @@ public class Player : MonoBehaviour
 
     public float jump_force;
 
-    public Transform ground_check;
-    public float ground_check_radius;
+    public Transform groundCheckLeft;
+    public Transform groundCheckRight;
+    public float checkDistance = 0.4f;
     public LayerMask ground_layer;
     private bool isGrounded;
 
     private Animator anim;
-
     private bool facingRight = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(ground_check.position, ground_check_radius, ground_layer);
+        if (!Pause.Instance.isPaused)
+        {
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity=new Vector2(horizontalInput*move_speed, rb.velocity.y);
-    
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jump_force);
-        }
+            bool leftGrounded = Physics2D.Raycast(groundCheckLeft.position, Vector2.down, checkDistance, ground_layer);
+            bool rightGrounded = Physics2D.Raycast(groundCheckRight.position, Vector2.down, checkDistance, ground_layer);
+            isGrounded = leftGrounded || rightGrounded;
 
-        if (rb.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(15f, transform.localScale.y, transform.localScale.z);
-            facingRight = true;
-        }
-        else if (rb.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-15f, transform.localScale.y, transform.localScale.z);
-            facingRight = false;
+            UnityEngine.Debug.DrawRay(groundCheckLeft.position, Vector2.down * checkDistance, leftGrounded ? Color.green : Color.red);
+            UnityEngine.Debug.DrawRay(groundCheckRight.position, Vector2.down * checkDistance, rightGrounded ? Color.green : Color.red);
+
+            horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalInput * move_speed, rb.velocity.y);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jump_force);
+            }
+
+            if (rb.velocity.x > 0)
+            {
+                transform.localScale = new Vector3(15f, transform.localScale.y, transform.localScale.z);
+                facingRight = true;
+            }
+            else if (rb.velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-15f, transform.localScale.y, transform.localScale.z);
+                facingRight = false;
+            }
+
         }
 
         anim.SetBool("isGrounded", isGrounded);
-        anim.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
     }
 
     public bool isFacingRight()

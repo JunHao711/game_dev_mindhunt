@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damageAmount;
         enemy_health_bar.SetHealth(currentHealth);
+        AudioManager.Instance.PlaySFX(2);
         if (currentHealth <= 0)
             Die();
     }
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("isDead", true);
         GetComponent<Collider2D>().enabled = false;
+        AudioManager.Instance.PlaySFX(1);
         this.enabled = false;
         Destroy(gameObject, 2f);
     }
