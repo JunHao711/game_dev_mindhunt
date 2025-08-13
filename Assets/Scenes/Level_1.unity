@@ -284,7 +284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -439, y: 326}
+  m_AnchoredPosition: {x: -444.40002, y: 248}
   m_SizeDelta: {x: 343.11554, y: 27.005157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6337273
@@ -2146,7 +2146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -210.41}
+  m_AnchoredPosition: {x: 0, y: -210.41003}
   m_SizeDelta: {x: -397.49796, y: -420.81235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282930573
@@ -2199,11 +2199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1760411813}
-  lines:
-  - 'Commander: Shadow Wolf, respond if you can hear me.'
-  - "Shadow Wolf: Copy that, Commander. I\u2019m in position. The outskirts of the
-    city are calm, but the atmosphere feels off."
   textSpeed: 0.01
+  healthBarUI: {fileID: 6337271}
+  coinImageUI: {fileID: 1463479641}
+  coinTextUI: {fileID: 1560703159}
 --- !u!1 &284022167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,8 +3733,9 @@ GameObject:
   - component: {fileID: 615054144}
   - component: {fileID: 615054143}
   - component: {fileID: 615054142}
+  - component: {fileID: 615054146}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3821,6 +3821,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &615054146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615054141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9410777b981bd73408626d6a3bf5ee39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637696724
 GameObject:
   m_ObjectHideFlags: 0
@@ -9585,7 +9597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -588.6, y: 257}
+  m_AnchoredPosition: {x: -594, y: 179}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463479643
@@ -10807,7 +10819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -460, y: 242.8}
+  m_AnchoredPosition: {x: -465.40002, y: 164.8}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560703161
@@ -12110,7 +12122,7 @@ GameObject:
   - component: {fileID: 1760411814}
   - component: {fileID: 1760411813}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DialogText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12132,8 +12144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.1}
-  m_SizeDelta: {x: 490.10034, y: 67.369}
+  m_AnchoredPosition: {x: 0.5, y: 0.0000015274}
+  m_SizeDelta: {x: 722.9385, y: 67.369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760411813
 MonoBehaviour:
@@ -12181,8 +12193,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
