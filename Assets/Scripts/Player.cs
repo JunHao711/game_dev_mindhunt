@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
 
     private Animator anim;
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     void Start()
     {
