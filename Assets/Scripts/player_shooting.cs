@@ -25,7 +25,7 @@ public class player_shooting : MonoBehaviour
     void Update()
     {
         // GameLock.InputLocked lock the motion of player
-        if(!GameLock.InputLocked && Input.GetMouseButtonDown(0) && shooting)
+        if(!GameLock.InputLocked && PlayerAbilityLock.allowShoot && Input.GetMouseButtonDown(0) && shooting)
         {
 
             Shoot();
