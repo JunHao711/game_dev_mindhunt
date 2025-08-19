@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!Pause.Instance.isPaused)
+        // GameLock.InputLocked lock the motion of player
+        if (!Pause.Instance.isPaused && !GameLock.InputLocked)
         {
 
             bool leftGrounded = Physics2D.Raycast(groundCheckLeft.position, Vector2.down, checkDistance, ground_layer);

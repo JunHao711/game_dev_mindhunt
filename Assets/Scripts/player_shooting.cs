@@ -24,7 +24,8 @@ public class player_shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && shooting)
+        // GameLock.InputLocked lock the motion of player
+        if(!GameLock.InputLocked && Input.GetMouseButtonDown(0) && shooting)
         {
 
             Shoot();
