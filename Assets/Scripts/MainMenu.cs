@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public string level1;
     public string credit;
+    public string tutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,11 @@ public class MainMenu : MonoBehaviour
     public void creditPage()
     {
         SceneManager.LoadScene(credit);
+    }
+
+    public void tutorialPage()
+    {
+        SceneManager.LoadScene(tutorial);
     }
 
     public void quitGame()

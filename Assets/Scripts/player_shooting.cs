@@ -42,7 +42,15 @@ public class player_shooting : MonoBehaviour
     public void FireBullet()
     {
         GameObject newBullet = Instantiate(bullet, firePos.position, Quaternion.identity);
-        Vector2 direction = player.isFacingRight() ? Vector2.right : Vector2.left;
+        //Vector2 direction = player.isFacingRight() ? Vector2.right : Vector2.left;
+        //newBullet.GetComponent<player_bullet>().SetDirection(direction);
+
+        // If Up Arrow is held while shooting, fire straight up.
+        // Otherwise, fire horizontally based on facing.
+        Vector2 direction = Input.GetKey(KeyCode.E)
+            ? Vector2.up
+            : (player.isFacingRight() ? Vector2.right : Vector2.left);
+
         newBullet.GetComponent<player_bullet>().SetDirection(direction);
     }
 

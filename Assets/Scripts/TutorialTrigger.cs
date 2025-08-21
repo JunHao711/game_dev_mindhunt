@@ -69,14 +69,14 @@ public class TutorialTrigger : MonoBehaviour
                 if (Input.GetMouseButtonDown(0)) Dismiss();
                 break;
 
-            case TutorialAction.FireUp:
-                // Hold Up (W or ↑) and click LMB
-                if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) &&
-                    Input.GetMouseButtonDown(0))
-                {
-                    Dismiss();
-                }
-                break;
+            //case TutorialAction.FireUp:
+            //    // Hold Up (W or ↑) and click LMB
+            //    if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) &&
+            //        Input.GetMouseButtonDown(1))
+            //    {
+            //        Dismiss();
+            //    }
+            //    break;
 
             case TutorialAction.MoveRight:
                 if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
