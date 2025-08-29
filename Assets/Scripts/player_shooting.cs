@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class player_shooting : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform firePos;
+    [Header("Bullet Prefabs")]
+    public GameObject bullet;      // horizontal bullet prefab
+    public GameObject bulletUp;    // upward bullet prefab
 
+    [Header("Fire Positions")]
+    public Transform firePos;     // left/right fire point
+    public Transform fireUpPos;   // upward fire point
+
+    [Header("Cooldown")]
     public float timeShots;
     private bool shooting = true;
 
@@ -21,16 +27,22 @@ public class player_shooting : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // GameLock.InputLocked lock the motion of player
-        if(!GameLock.InputLocked && PlayerAbilityLock.allowShoot && Input.GetMouseButtonDown(0) && shooting)
-        {
+        if (GameLock.InputLocked || !PlayerAbilityLock.allowShoot || !shooting) return;
 
+        if (Input.GetMouseButtonDown(0))
+        {
             Shoot();
+            FireBullet();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            ShootUp();
+            FireBulletUp();
         }
     }
+
 
     private void Shoot()
     {
@@ -39,19 +51,36 @@ public class player_shooting : MonoBehaviour
         StartCoroutine(ShootDelay());
     }
 
+    private void ShootUp()
+    {
+        anim.SetTrigger("ShootUp");
+        AudioManager.Instance.PlaySFX(3);
+        StartCoroutine(ShootDelay());
+    }
+
     public void FireBullet()
     {
         GameObject newBullet = Instantiate(bullet, firePos.position, Quaternion.identity);
-        //Vector2 direction = player.isFacingRight() ? Vector2.right : Vector2.left;
-        //newBullet.GetComponent<player_bullet>().SetDirection(direction);
 
-        // If Up Arrow is held while shooting, fire straight up.
-        // Otherwise, fire horizontally based on facing.
-        Vector2 direction = Input.GetKey(KeyCode.E)
-            ? Vector2.up
-            : (player.isFacingRight() ? Vector2.right : Vector2.left);
+        Vector2 dir = player.isFacingRight() ? Vector2.right : Vector2.left;
 
-        newBullet.GetComponent<player_bullet>().SetDirection(direction);
+        newBullet.transform.right = dir;
+
+        newBullet.GetComponent<player_bullet>().SetDirection(dir);
+    }
+
+
+
+    public void FireBulletUp()
+    {
+        if (bulletUp != null && fireUpPos != null)
+        {
+            GameObject newBullet = Instantiate(bulletUp, fireUpPos.position, Quaternion.identity);
+
+            newBullet.transform.right = Vector2.up;
+
+            newBullet.GetComponent<player_bullet>().SetDirection(Vector2.up);
+        }
     }
 
     IEnumerator ShootDelay()

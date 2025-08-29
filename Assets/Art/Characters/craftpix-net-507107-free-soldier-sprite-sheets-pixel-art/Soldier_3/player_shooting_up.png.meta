@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: c2fdf3c557e5e52449d9435af0cb42ba
+guid: a40b998f5a4316242a92e8fecd2ea571
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 35208279058261339
-    second: City4_0
+      213: -8109201601945164837
+    second: player_shooting_up_0
+  - first:
+      213: -1962341417983228671
+    second: player_shooting_up_1
+  - first:
+      213: -248416894185347148
+    second: player_shooting_up_2
+  - first:
+      213: 5824242285578126309
+    second: player_shooting_up_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,22 +111,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: City4_0
+      name: player_shooting_up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 6
-        width: 1920
-        height: 200
+        x: 27
+        y: 0
+        width: 32
+        height: 93
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b55ab664eb51d7000800000000000000
-      internalID: 35208279058261339
+      spriteID: bd3a7008b14567f80800000000000000
+      internalID: -8109201601945164837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_shooting_up_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 33
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105c21590ec54c4e0800000000000000
+      internalID: -1962341417983228671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_shooting_up_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 0
+        width: 33
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b760e1a6227d8cf0800000000000000
+      internalID: -248416894185347148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_shooting_up_3
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 0
+        width: 32
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e381b5208dd3d050800000000000000
+      internalID: 5824242285578126309
       vertices: []
       indices: 
       edges: []
