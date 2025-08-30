@@ -117,6 +117,6 @@ public class GroundEnemy : Enemy
     }
     public override void takeDamage()
     {
-        base.takeDamage();  // ✅ 确保死后播放动画
+        base.takeDamage();
     }
 }
