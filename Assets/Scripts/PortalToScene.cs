@@ -40,6 +40,15 @@ public class PortalToScene : MonoBehaviour
     IEnumerator LoadRoutine()
     {
         if (enterDelay > 0) yield return new WaitForSeconds(enterDelay);
+
+        // Check if the current scene is "Tutorial"
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            // If in the "Tutorial" scene, load "Menu" scene
+            nextSceneName = "Menu";
+        }
+
+        // Load the determined next scene
         if (useBuildIndexNext)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else

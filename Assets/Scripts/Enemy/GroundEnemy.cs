@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GroundEnemy : Enemy
 {
@@ -14,6 +15,11 @@ public class GroundEnemy : Enemy
     private Vector3 currentTarget;
     private bool isAttacking = false;
     private bool isDead = false;
+    
+    [Header("Portal Settings")]
+    public GameObject portalPrefab;
+    public Transform portalSpawnPoint;
+    public float portalDelay = 0.3f;
 
     public override void Start()
     {
@@ -25,6 +31,29 @@ public class GroundEnemy : Enemy
     {
         base.Die();
         isDead = true;
+
+        // Check if the current scene is "tutorial"
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            // If scene is "tutorial", execute the portal spawning logic
+            if (portalPrefab && portalDelay > 0f)
+                StartCoroutine(SpawnPortalThenDestroy());
+            else
+            {
+                // Immediately spawn and destroy portal
+                Vector3 pos = portalSpawnPoint ? portalSpawnPoint.position : transform.position;
+                if (portalPrefab) Instantiate(portalPrefab, pos, Quaternion.identity);
+            }
+        }
+        else
+        {
+        }
+    }
+    private System.Collections.IEnumerator SpawnPortalThenDestroy()
+    {
+        yield return new WaitForSeconds(portalDelay);
+        Vector3 pos = portalSpawnPoint ? portalSpawnPoint.position : transform.position;
+        Instantiate(portalPrefab, pos, Quaternion.identity);
     }
 
     public override void Update()
