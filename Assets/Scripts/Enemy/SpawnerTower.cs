@@ -13,6 +13,7 @@ public class SpawnerTower : MonoBehaviour
     public Transform spawnPoint;
     public Vector3 spawnOffset = new Vector3(0, 1f, 0);
 
+
     [Header("Ground Enemy Patrol Points")]
     public Transform groundPointA;
     public Transform groundPointB;
@@ -23,8 +24,15 @@ public class SpawnerTower : MonoBehaviour
     public Enemy_health_bar healthBar;
 
     [Header("Spawn Limit Settings")]
-    public int maxEnemies = 5;  // ✅ 最大生成数量
-    private int currentEnemyCount = 0;  // ✅ 当前已生成
+    public int maxEnemies = 5; 
+    private int currentEnemyCount = 0;
+
+    [Header("Portal Settings")]
+    public GameObject portalPrefab;
+    public Transform portalSpawnPoint;
+    public float portalDelay = 0.3f;
+
+    bool dead;
 
     private void Start()
     {
@@ -75,6 +83,26 @@ public class SpawnerTower : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        if (dead) return;
+        dead = true;
+
+        if (portalPrefab && portalDelay > 0f)
+            StartCoroutine(SpawnPortalThenDestroy());
+        else
+        {
+            // 立刻生成就立刻销毁
+            Vector3 pos = portalSpawnPoint ? portalSpawnPoint.position : transform.position;
+            if (portalPrefab) Instantiate(portalPrefab, pos, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
+
+    private System.Collections.IEnumerator SpawnPortalThenDestroy()
+    {
+        yield return new WaitForSeconds(portalDelay);
+        Vector3 pos = portalSpawnPoint ? portalSpawnPoint.position : transform.position;
+        Instantiate(portalPrefab, pos, Quaternion.identity);
+        Destroy(gameObject);     // 等 portal 出现后再把塔删掉
+    }
+
 }
