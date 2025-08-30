@@ -10,6 +10,7 @@ TagManager:
   - Coins
   - Enemy
   - Box
+  - Bullet
   layers:
   - Default
   - TransparentFX

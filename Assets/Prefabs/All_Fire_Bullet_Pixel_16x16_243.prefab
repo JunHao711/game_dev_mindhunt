@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7539478132801421946}
   m_Layer: 0
   m_Name: All_Fire_Bullet_Pixel_16x16_243
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,3 +156,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   maxDistance: 5
+  damageAmount: 1
