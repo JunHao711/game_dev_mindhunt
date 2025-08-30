@@ -17,17 +17,6 @@ public class canoonShooter : MonoBehaviour
 
     IEnumerator Start()
     {
-        if (!rockPrefab || !muzzle)
-        {
-            Debug.LogError("CannonShooter: rockPrefab 或 muzzle 未设置", this);
-            yield break;
-        }
-        if (rockPrefab.scene.IsValid())
-        {
-            Debug.LogError("CannonShooter: rockPrefab 指向场景对象，请拖入 Project 面板里的 prefab 资产", rockPrefab);
-            yield break;
-        }
-
         while (true)
         {
             if (!onlyWhenPlayerInRange || PlayerInFront())
