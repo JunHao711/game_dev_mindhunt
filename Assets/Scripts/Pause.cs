@@ -51,6 +51,7 @@ public class Pause : MonoBehaviour
 
     public void restartButton()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
