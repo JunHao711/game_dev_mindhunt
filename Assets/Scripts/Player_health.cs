@@ -44,7 +44,11 @@ public class Player_health : MonoBehaviour
 
     public void GetDamage()
     {
-        if(immortalCounter <= 0)
+        // avoid starting coroutines on inactive/dead player
+        if (isDead || !isActiveAndEnabled || !gameObject.activeInHierarchy)
+            return;
+
+        if (immortalCounter <= 0)
         {
             current_health -= damage;
             healthbar.setHealth(current_health);

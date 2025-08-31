@@ -26,7 +26,6 @@ public class AirShooter : Enemy
     public LayerMask playerBulletLayers;   
     public int damageFromBullet = 1;        
     public bool destroyBulletOnHit = true;
-    private bool isDead = false;
 
     private Vector3 origin, target;
     private float nextRetargetAt = 0f;
@@ -40,8 +39,10 @@ public class AirShooter : Enemy
         StartCoroutine(ShootLoop());
     }
 
-    void Update()
+    public override void Update()
     {
+        base.Update(); // keep Enemy’s shared logic (death checks, timers, etc.)
+
         if (Time.time >= nextRetargetAt || Vector2.Distance(transform.position, target) < 0.2f)
             PickNewTarget();
 
@@ -52,8 +53,9 @@ public class AirShooter : Enemy
         if (faceMoveDir && Mathf.Abs(step.x) > 0.0001f)
         {
             float dir = Mathf.Sign(step.x);
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * dir,
-                                               transform.localScale.y, transform.localScale.z);
+            var s = transform.localScale;
+            s.x = Mathf.Abs(s.x) * dir;
+            transform.localScale = s;
         }
     }
 
