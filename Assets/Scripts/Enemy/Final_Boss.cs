@@ -1,45 +1,70 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Final_Boss : MonoBehaviour
 {
-    public GameObject player;
-    public float detectingRange;
-    public float timeBetweenattacks = 1f;
+    [Header("Detection & Attack")]
+    public float detectingRange = 8f;      // start reacting to player
+    public float attackRange = 2f;      // trigger attack when player is this close
+    public float timeBetweenAttacks = 1f;  // cooldown between attacks
+
+    [Header("Refs (auto if left empty)")]
+    public GameObject player;              // will auto-find by tag "Player" if null
+
+    // Animator parameters (keep names exactly the same in Animator)
+    private const string PARAM_IN_RANGE = "Player_In_Range";
+    private const string PARAM_ATTACK = "Attack";
+
     private Animator anim;
+    private bool isAttacking;
 
-    public float attackRange;
-    private bool isAttacking = false;
-
-    // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
         anim = GetComponent<Animator>();
+        if (anim == null)
+            Debug.LogError("[Final_Boss] Missing Animator component.");
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (player == null || anim == null) return;
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < detectingRange)
-        {
-            anim.SetBool("Player_In_Range", true);
+        // Set bool for Animator (used for idle/alert logic or movement)
+        bool inRange = distance <= detectingRange;
+        anim.SetBool(PARAM_IN_RANGE, inRange);
 
-            if(distance = attackRangee && !isAttacking)
-            {
-                //continue
-            }
-
-        }
-
-        else
-        {
-            anim.SetBool("Player_In_Range", false);
-        }
+        // If close enough and not on cooldown -> trigger attack once
+        if (inRange && distance <= attackRange && !isAttacking)
+            StartCoroutine(AttackAfterDelay());
     }
 
-    private void 
+    private IEnumerator AttackAfterDelay()
+    {
+        isAttacking = true;           // lock until cooldown finishes
+        anim.SetTrigger(PARAM_ATTACK);// Animator will transition idle -> Attack (Trigger)
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        isAttacking = false;
+    }
+
+    // Editor helper: visualize ranges
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectingRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    // Keep values sane if edited in Inspector
+    private void OnValidate()
+    {
+        detectingRange = Mathf.Max(0f, detectingRange);
+        attackRange = Mathf.Clamp(attackRange, 0f, detectingRange);
+        timeBetweenAttacks = Mathf.Max(0.05f, timeBetweenAttacks);
+    }
 }
