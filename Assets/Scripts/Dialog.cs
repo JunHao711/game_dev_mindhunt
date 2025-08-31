@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialog : MonoBehaviour
 {
@@ -38,8 +39,11 @@ public class Dialog : MonoBehaviour
         },
         // Level 2
         new string[] {
-            "Boss: You dare challenge me?",
-            ""
+            "Where am I? Calling the commander.",
+            "....",
+            "....",
+            "No response, it seems I can only rely on myself.",
+            "It's too late to turn back now, be careful and keep moving forward."
         },
         new string[] {
             "Boss: You dare challenge me?",
@@ -72,7 +76,11 @@ public class Dialog : MonoBehaviour
             return;
         }
 
-    ShowDialog(0); // plays Commander/Shadow Wolf
+        // If current scene is "Level_1", play dialog 0
+        if (SceneManager.GetActiveScene().name == "Level_1")
+        {
+            ShowDialog(0);
+        }
 
     }
 
