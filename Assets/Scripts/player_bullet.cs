@@ -96,6 +96,22 @@ public class player_bullet : MonoBehaviour
             Destroy(gameObject);
         
         }
+
+        else if (collision.gameObject.CompareTag("Final_Boss"))
+        {
+            if (hitEffect != null)
+            {
+                Instantiate(hitEffect, collision.transform.position, collision.transform.rotation);
+            }
+
+            var Final_boss = collision.GetComponent<Final_Boss>();
+            if (Final_boss != null)
+            {
+                Final_boss.TakeDamage();
+            }
+            Destroy(gameObject);
+
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -3,68 +3,110 @@ using UnityEngine;
 
 public class Final_Boss : MonoBehaviour
 {
-    [Header("Detection & Attack")]
-    public float detectingRange = 8f;      // start reacting to player
-    public float attackRange = 2f;      // trigger attack when player is this close
-    public float timeBetweenAttacks = 1f;  // cooldown between attacks
+    public GameObject player;
 
-    [Header("Refs (auto if left empty)")]
-    public GameObject player;              // will auto-find by tag "Player" if null
+    [Header("Ranges")]
+    public float detectingRange = 8f;
+    public float attackRange = 2f;
+    public float boxHeight = 4f;
+    public float forwardGap = 0f;
 
-    // Animator parameters (keep names exactly the same in Animator)
-    private const string PARAM_IN_RANGE = "Player_In_Range";
-    private const string PARAM_ATTACK = "Attack";
+    [Header("Attack")]
+    public float timeBetweenAttacks = 1f;
 
+    [Header("Health & VFX")]
+    public int maxHealth = 10;
+    public int damageAmount = 1;                 // 每次受击减少的血量
+    public GameObject explosionEffect;           // 在 Inspector 赋值
+
+    [Header("Layer Settings")]
+    public LayerMask playerLayer;
+
+    private int currentHealth;
     private Animator anim;
-    private bool isAttacking;
+    private SpriteRenderer sr;
+    private bool isAttacking = false;
+
+    private static readonly int HASH_IN_RANGE = Animator.StringToHash("Player_In_Range");
+    private static readonly int HASH_ATTACK = Animator.StringToHash("Attack");
 
     void Start()
     {
+        currentHealth = maxHealth;
+
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
         anim = GetComponent<Animator>();
-        if (anim == null)
-            Debug.LogError("[Final_Boss] Missing Animator component.");
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (player == null || anim == null) return;
+        if (anim == null) return;
 
-        float distance = Vector2.Distance(transform.position, player.transform.position);
+        int facingDir = (sr != null && sr.flipX) ? -1 : 1;
 
-        // Set bool for Animator (used for idle/alert logic or movement)
-        bool inRange = distance <= detectingRange;
-        anim.SetBool(PARAM_IN_RANGE, inRange);
+        Vector2 detectCenter = (Vector2)transform.position +
+                               Vector2.right * facingDir * (detectingRange * 0.5f + forwardGap);
+        Vector2 detectSize = new Vector2(detectingRange, boxHeight);
 
-        // If close enough and not on cooldown -> trigger attack once
-        if (inRange && distance <= attackRange && !isAttacking)
+        Vector2 attackCenter = (Vector2)transform.position +
+                               Vector2.right * facingDir * (attackRange * 0.5f + forwardGap);
+        Vector2 attackSize = new Vector2(attackRange, boxHeight);
+
+        bool inDetect = Physics2D.OverlapBox(detectCenter, detectSize, 0f, playerLayer);
+        bool inAttack = Physics2D.OverlapBox(attackCenter, attackSize, 0f, playerLayer);
+
+        anim.SetBool(HASH_IN_RANGE, inDetect);
+
+        if (inDetect && inAttack && !isAttacking)
             StartCoroutine(AttackAfterDelay());
     }
 
     private IEnumerator AttackAfterDelay()
     {
-        isAttacking = true;           // lock until cooldown finishes
-        anim.SetTrigger(PARAM_ATTACK);// Animator will transition idle -> Attack (Trigger)
+        isAttacking = true;
+        anim.SetTrigger(HASH_ATTACK);
         yield return new WaitForSeconds(timeBetweenAttacks);
         isAttacking = false;
     }
 
-    // Editor helper: visualize ranges
     private void OnDrawGizmosSelected()
     {
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
+        int facingDir = (sr != null && sr.flipX) ? -1 : 1;
+
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectingRange);
+        Vector2 detectCenter = (Vector2)transform.position +
+                               Vector2.right * facingDir * (detectingRange * 0.5f + forwardGap);
+        Gizmos.DrawWireCube(detectCenter, new Vector2(detectingRange, boxHeight));
+
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Vector2 attackCenter = (Vector2)transform.position +
+                               Vector2.right * facingDir * (attackRange * 0.5f + forwardGap);
+        Gizmos.DrawWireCube(attackCenter, new Vector2(attackRange, boxHeight));
     }
 
-    // Keep values sane if edited in Inspector
-    private void OnValidate()
+    // —— 受伤/死亡 —— //
+    public void TakeDamage()
     {
-        detectingRange = Mathf.Max(0f, detectingRange);
-        attackRange = Mathf.Clamp(attackRange, 0f, detectingRange);
-        timeBetweenAttacks = Mathf.Max(0.05f, timeBetweenAttacks);
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        if (explosionEffect != null)
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
+        // 关掉所有 2D 碰撞体
+        foreach (var col in GetComponents<Collider2D>())
+            col.enabled = false;
+
+        // 停止本脚本逻辑并销毁对象（给点延迟让特效播放）
+        enabled = false;
+        Destroy(gameObject, 2f);
     }
 }

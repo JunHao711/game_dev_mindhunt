@@ -12,6 +12,7 @@ TagManager:
   - Box
   - Bullet
   - boss_level2
+  - Final_Boss
   layers:
   - Default
   - TransparentFX
