@@ -22,6 +22,8 @@ public class Final_Boss : MonoBehaviour
     [Header("Layer Settings")]
     public LayerMask playerLayer;
 
+    public FinalBoss_healthBar FinalBoss_Healthbar;
+
     private int currentHealth;
     private Animator anim;
     private SpriteRenderer sr;
@@ -39,6 +41,7 @@ public class Final_Boss : MonoBehaviour
 
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        FinalBoss_Healthbar.SetMaxHealth(currentHealth);
     }
 
     void Update()
@@ -92,6 +95,8 @@ public class Final_Boss : MonoBehaviour
     public void TakeDamage()
     {
         currentHealth -= damageAmount;
+        FinalBoss_Healthbar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
             Die();
     }
