@@ -39,6 +39,9 @@ public class Enemy : MonoBehaviour
 
     public virtual void DoDamage()
     {
+        if (playerHealth == null) return;
+        if (!playerHealth.isActiveAndEnabled) return;
+
         if (player != null)
         {
             playerHealth.GetDamage(damageAmount);
