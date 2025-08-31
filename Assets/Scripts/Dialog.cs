@@ -14,6 +14,7 @@ public class Dialog : MonoBehaviour
     // Store multiple dialogs here (each entry is a set of lines)
     private readonly string[][] dialogs = new string[][]
     {
+        // Level 1
         new string[] {
             "Commander: Shadow Wolf, respond if you hear me.",
             "Shadow Wolf: Copy that, Commander. I am in position. The outskirts of the city are calm, but something feels off.",
@@ -35,9 +36,10 @@ public class Dialog : MonoBehaviour
             "What's that tower? Monsters seem to keep spawning from it.",
             "It seems I need to destroy that tower to deal with the surrounding monsters."
         },
+        // Level 2
         new string[] {
             "Boss: You dare challenge me?",
-            "Player: I will stop you no matter what!"
+            ""
         },
         new string[] {
             "Boss: You dare challenge me?",
