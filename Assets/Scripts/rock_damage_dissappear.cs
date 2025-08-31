@@ -37,3 +37,5 @@ public class rock_damage_dissappear : MonoBehaviour
         Destroy(gameObject, 0.01f);
     }
 }
+
+

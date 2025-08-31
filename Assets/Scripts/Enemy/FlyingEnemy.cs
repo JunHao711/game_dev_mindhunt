@@ -39,12 +39,19 @@ public class FlyingEnemy : Enemy
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        //if (collision.CompareTag("Player"))
+        //{
+        //    Player_health playerHealth = collision.GetComponent<Player_health>();
+        //    if (playerHealth != null) playerHealth.GetDamage(damageAmount);
+        //}
+
+        var hp = other.GetComponentInParent<Player_health>();
+        if (hp != null)
         {
-            Player_health playerHealth = collision.GetComponent<Player_health>();
-            if (playerHealth != null) playerHealth.GetDamage(damageAmount);
+            Debug.Log("[FlyingEnemy] body hit");
+            hp.GetDamage(damageAmount);
         }
     }
 

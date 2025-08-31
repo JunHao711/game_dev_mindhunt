@@ -27,6 +27,9 @@ public class AirShooter : Enemy
     public int damageFromBullet = 1;        
     public bool destroyBulletOnHit = true;
 
+    [Header("Projectile Damage")]
+    public int projectileDamage = 1;
+
     private Vector3 origin, target;
     private float nextRetargetAt = 0f;
 
@@ -80,20 +83,51 @@ public class AirShooter : Enemy
 
     void FireOne()
     {
+        //if (rockPrefab == null || firePoint == null || player == null) return;
+
+        //Vector2 dir = (player.position - firePoint.position).normalized;
+
+        //GameObject rock = Instantiate(rockPrefab, firePoint.position, Quaternion.identity);
+        //var rb = rock.GetComponent<Rigidbody2D>();
+        //if (rb == null) rb = rock.AddComponent<Rigidbody2D>();
+        //rb.bodyType = RigidbodyType2D.Kinematic;
+        //rb.gravityScale = 0f;
+        //rb.velocity = dir * bulletSpeed;
+
+        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //rock.transform.rotation = Quaternion.Euler(0, 0, angle);
+        //Destroy(rock, bulletLife);
+
         if (rockPrefab == null || firePoint == null || player == null) return;
 
         Vector2 dir = (player.position - firePoint.position).normalized;
 
         GameObject rock = Instantiate(rockPrefab, firePoint.position, Quaternion.identity);
+
+        // Rigidbody2D setup
         var rb = rock.GetComponent<Rigidbody2D>();
         if (rb == null) rb = rock.AddComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
         rb.velocity = dir * bulletSpeed;
 
+        // Collider setup (trigger projectile)
+        var col = rock.GetComponent<Collider2D>();
+        if (col == null) col = rock.AddComponent<CircleCollider2D>();
+        col.isTrigger = true;
+
+        // Damage script setup
+        var proj = rock.GetComponent<EnemyProjectile>();
+        if (proj == null) proj = rock.AddComponent<EnemyProjectile>();
+        proj.damage = Mathf.Max(1, projectileDamage);
+        proj.life = bulletLife; // let the projectile handle its own lifetime
+
+        // (Optional) put on a dedicated layer if you use one
+        // rock.layer = LayerMask.NameToLayer("EnemyProjectile");
+
+        // Rotate to face travel direction (purely visual)
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rock.transform.rotation = Quaternion.Euler(0, 0, angle);
-        Destroy(rock, bulletLife);
     }
 
     void OnDrawGizmosSelected()

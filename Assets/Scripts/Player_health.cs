@@ -44,6 +44,7 @@ public class Player_health : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        Debug.Log($"[Player_health] GetDamage called: dmg={damage}, immortalCounter={immortalCounter}, isDead={isDead}");
         // avoid starting coroutines on inactive/dead player
         if (isDead || !isActiveAndEnabled || !gameObject.activeInHierarchy)
             return;

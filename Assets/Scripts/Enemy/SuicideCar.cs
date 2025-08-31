@@ -85,32 +85,51 @@ public class SuicideCar : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!started) return;
-        if (!other.CompareTag("Player")) return;
+        //if (!other.CompareTag("Player")) return;
         TryHit(other);
     }
 
     void OnCollisionEnter2D(Collision2D c)
     {
         if (!started) return;
-        if (!c.collider.CompareTag("Player")) return;
+        //if (!c.collider.CompareTag("Player")) return;
         TryHit(c.collider);
     }
 
     void TryHit(Component playerComp)
     {
+        //if (damageOnce && hitOnce) return;
+
+        //var playerCol = playerComp.GetComponent<Collider2D>();
+        //if (playerCol && myCol)
+        //{
+        //    float carTop = myCol.bounds.max.y;
+        //    float playerBottom = playerCol.bounds.min.y;
+        //    if (playerBottom > carTop + jumpClearance) return;
+        //}
+
+        //var hp = playerComp.GetComponent<Player_health>();
+        //if (hp) hp.GetDamage(damageToPlayer);
+        //hitOnce = true; 
+
         if (damageOnce && hitOnce) return;
 
+        // 1) Only proceed if we actually touched the player root that has health
+        var hp = playerComp.GetComponentInParent<Player_health>();
+        if (hp == null) return;
+
+        // 2) Optional stomp/dodge check (uses the *colliders* that touched)
         var playerCol = playerComp.GetComponent<Collider2D>();
         if (playerCol && myCol)
         {
             float carTop = myCol.bounds.max.y;
             float playerBottom = playerCol.bounds.min.y;
-            if (playerBottom > carTop + jumpClearance) return;
+            if (playerBottom > carTop + jumpClearance) return; // player jumped over
         }
 
-        var hp = playerComp.GetComponent<Player_health>();
-        if (hp) hp.GetDamage(damageToPlayer);
-        hitOnce = true; 
+        // 3) Apply damage
+        hp.GetDamage(damageToPlayer);
+        hitOnce = true;
     }
 
     void OnBecameInvisible()
