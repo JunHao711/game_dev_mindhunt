@@ -24,7 +24,10 @@ public class GroundEnemy : Enemy
     public override void Start()
     {
         base.Start();
-        currentTarget = pointB.position;
+        if (pointB != null)
+        {
+            currentTarget = pointB.position;
+        }
     }
 
     public override void Die()

@@ -44,7 +44,7 @@ public class FlyingEnemy : Enemy
         if (collision.CompareTag("Player"))
         {
             Player_health playerHealth = collision.GetComponent<Player_health>();
-            if (playerHealth != null) playerHealth.GetDamage();
+            if (playerHealth != null) playerHealth.GetDamage(damageAmount);
         }
     }
 

@@ -14,6 +14,8 @@ public class player_bullet : MonoBehaviour
     private GameObject playerObj;
     public int damageAmount = 1;
 
+    public GameObject hitEffect;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,6 +79,22 @@ public class player_bullet : MonoBehaviour
         else if (collision.gameObject.CompareTag("Box"))
         {
             Destroy(gameObject);
+        }
+
+        else if(collision.gameObject.CompareTag("boss_level2"))
+        {
+            if(hitEffect != null)
+            {
+                Instantiate(hitEffect, collision.transform.position, collision.transform.rotation);
+            }
+
+            var boss = collision.GetComponent<boss_level2>();
+            if(boss != null)
+            {
+                boss.TakeDamage();
+            }
+            Destroy(gameObject);
+        
         }
     }
 

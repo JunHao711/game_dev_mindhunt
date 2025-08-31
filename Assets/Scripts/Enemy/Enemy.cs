@@ -23,8 +23,12 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
-        enemy_health_bar.SetMaxHealth(maxHealth);
-        enemy_health_bar.SetHealth(currentHealth);
+
+        if (enemy_health_bar != null)
+        {
+            enemy_health_bar.SetMaxHealth(maxHealth);
+            enemy_health_bar.SetHealth(currentHealth);
+        }
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player != null)
@@ -37,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            playerHealth.GetDamage();
+            playerHealth.GetDamage(damageAmount);
         }
     }
 

@@ -12,7 +12,8 @@ public class SuicideCar : MonoBehaviour
 
     [Header("Damage / Dodge")]
     public float jumpClearance = 0.15f;    
-    public bool damageOnce = true;      
+    public bool damageOnce = true;
+    public int damageToPlayer = 1;
     [Header("Cleanup")]
     public bool destroyWhenInvisible = true;
 
@@ -108,7 +109,7 @@ public class SuicideCar : MonoBehaviour
         }
 
         var hp = playerComp.GetComponent<Player_health>();
-        if (hp) hp.GetDamage();
+        if (hp) hp.GetDamage(damageToPlayer);
         hitOnce = true; 
     }
 

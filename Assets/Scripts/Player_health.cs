@@ -7,7 +7,7 @@ public class Player_health : MonoBehaviour
 {
     public int current_health;
     public int max_health;
-    public int damage;
+    //public int damage;
     public int healthPickupAmount = 1;
 
     public Health_bar healthbar;
@@ -42,7 +42,7 @@ public class Player_health : MonoBehaviour
         }
     }
 
-    public void GetDamage()
+    public void GetDamage(int damage)
     {
         if(immortalCounter <= 0)
         {

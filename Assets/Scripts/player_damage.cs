@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class player_damage : MonoBehaviour
 {
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class player_damage : MonoBehaviour
             Player_health playerhealth = collision.gameObject.GetComponent<Player_health>();
             if (playerhealth != null)
             {
-                playerhealth.GetDamage();
+                playerhealth.GetDamage(damage);
             }
         }
     }
