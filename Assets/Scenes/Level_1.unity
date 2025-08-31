@@ -14415,7 +14415,7 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 2, z: 0}
   groundPointA: {fileID: 1171441976}
   groundPointB: {fileID: 1397929076}
-  maxHealth: 5
+  maxHealth: 20
   healthBar: {fileID: 1084079844}
   maxEnemies: 5
   portalPrefab: {fileID: 5390548480184012143, guid: 8250c1386ca5d4942af638db378c14e1,
