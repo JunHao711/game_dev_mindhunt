@@ -16,16 +16,37 @@ public class Dialog : MonoBehaviour
     {
         new string[] {
             "Commander: Shadow Wolf, respond if you hear me.",
-            "Shadow Wolf: Copy that, Commander. I am in position."
+            "Shadow Wolf: Copy that, Commander. I am in position. The outskirts of the city are calm, but something feels off.",
+            "Commander: You arrived just in time. We have reliable intel that in the past 48 hours, more than 30 people have gone missing in the city — no witnesses, no surveillance footage, not even a trace.",
+            "Shadow Wolf: Confirmed. For so many people to vanish without anyone noticing... Could the police be hiding something?",
+            "Commander: Unknown. The local law enforcement is in disarray, and some have already 'resigned voluntarily.' Your mission is to uncover the truth and find the cause behind these disappearances.",
+            "Shadow Wolf: Target location?",
+            "Commander: Initial suspicion points to the East District — the old industrial area. Several missing persons were last seen there, and then vanished without a word.",
+            "Shadow Wolf: Understood. I’ll start searching in that area. If someone is pulling the strings behind this, I’ll find them.",
+            "Commander: Maintain stealth and do not reveal your identity. Operation Shadow Veil is officially underway. Good luck, Shadow Wolf."
         },
         new string[] {
-            "Villager: Thank you, hero!",
-            "Hero: Stay safe, the danger isn’t over yet."
+            "What's that? A flying monster? And a minotaur that looks like the Minotaur?"
+        },
+        new string[] {
+            "Are those traps? Better be careful."
+        },
+        new string[] {
+            "What's that tower? Monsters seem to keep spawning from it.",
+            "It seems I need to destroy that tower to deal with the surrounding monsters."
         },
         new string[] {
             "Boss: You dare challenge me?",
             "Player: I will stop you no matter what!"
-        }
+        },
+        new string[] {
+            "Boss: You dare challenge me?",
+            "Player: I will stop you no matter what!"
+        },
+        new string[] {
+            "Boss: You dare challenge me?",
+            "Player: I will stop you no matter what!"
+        },
     };
 
     private string[] lines;

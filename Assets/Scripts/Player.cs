@@ -100,6 +100,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // If input is locked, hard-stop horizontal movement immediately.
+        if (GameLock.InputLocked)
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y); // keep gravity/jump Y, stop X
+            horizontalInput = 0f;
+            anim.SetFloat("Speed", 0f); // optional: keep run anim from playing
+            return; // skip the rest of Update
+        }
+
         // GameLock.InputLocked lock the motion of player
         if (!Pause.Instance.isPaused && !GameLock.InputLocked)
         {
