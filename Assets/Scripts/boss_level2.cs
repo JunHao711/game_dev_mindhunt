@@ -18,6 +18,16 @@ public class boss_level2 : MonoBehaviour
 
     public Bosshealthbar bosshealthbar;
 
+    [Header("Portal Settings")]
+    public GameObject portalPrefab; 
+    public Transform portalSpawnPoint;  
+    public float portalDelay = 0.3f; 
+
+    public bool portalUseBuildIndexNext = true;
+    public string portalNextSceneName = "Level_3";
+
+    private bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,11 +110,38 @@ public class boss_level2 : MonoBehaviour
     //    Destroy(gameObject, 2f);
     //}
 
+    //private void Die()
+    //{
+    //    anim.SetBool("isDead", true);
+    //    anim.speed = 1f;                      // just in case
+    //    anim.Play("dead", 0, 0f);             // force play the 'dead' state on layer 0
+
+    //    var col = GetComponent<Collider2D>();
+    //    if (col) col.enabled = false;
+
+    //    var rb = GetComponent<Rigidbody2D>();
+    //    if (rb)
+    //    {
+    //        rb.velocity = Vector2.zero;
+    //        rb.angularVelocity = 0f;
+    //        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    //    }
+
+    //    this.enabled = false;                  // stops your Translate() loop :contentReference[oaicite:0]{index=0}
+    //    Destroy(gameObject, 2f);               // match your dead clip length
+    //}
+
     private void Die()
     {
-        anim.SetBool("isDead", true);
-        anim.speed = 1f;                      // just in case
-        anim.Play("dead", 0, 0f);             // force play the 'dead' state on layer 0
+        if (dead) return;
+        dead = true;
+
+        if (anim)
+        {
+            anim.SetBool("isDead", true);
+            anim.speed = 1f;
+            anim.Play("dead", 0, 0f);
+        }
 
         var col = GetComponent<Collider2D>();
         if (col) col.enabled = false;
@@ -117,8 +154,33 @@ public class boss_level2 : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        this.enabled = false;                  // stops your Translate() loop :contentReference[oaicite:0]{index=0}
-        Destroy(gameObject, 2f);               // match your dead clip length
+        this.enabled = false;
+
+        if (portalPrefab)
+            StartCoroutine(SpawnPortalThenDestroy());
+        else
+            Destroy(gameObject, 2f);
     }
+
+    private System.Collections.IEnumerator SpawnPortalThenDestroy()
+    {
+        if (portalDelay > 0f) yield return new WaitForSeconds(portalDelay);
+
+        Vector3 pos = portalSpawnPoint ? portalSpawnPoint.position : transform.position;
+        var go = Instantiate(portalPrefab, pos, Quaternion.identity);
+
+        var pts = go.GetComponent<PortalToScene>();
+        if (pts)
+        {
+            pts.useBuildIndexNext = portalUseBuildIndexNext;
+            if (!portalUseBuildIndexNext)
+            {
+                pts.nextSceneName = portalNextSceneName;
+            }
+        }
+
+        Destroy(gameObject, 2f);
+    }
+
 
 }
