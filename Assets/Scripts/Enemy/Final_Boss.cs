@@ -22,12 +22,17 @@ public class Final_Boss : MonoBehaviour
     [Header("Layer Settings")]
     public LayerMask playerLayer;
 
+    [Header("Victory Screen")]
+    public GameObject victoryScreen;             // 拖入 Canvas/VictoryScreen
+    public float victoryDelaySeconds = 1f;
+
     public FinalBoss_healthBar FinalBoss_Healthbar;
 
     private int currentHealth;
     private Animator anim;
     private SpriteRenderer sr;
     private bool isAttacking = false;
+    private bool isDead = false;
 
     private static readonly int HASH_IN_RANGE = Animator.StringToHash("Player_In_Range");
     private static readonly int HASH_ATTACK = Animator.StringToHash("Attack");
@@ -103,9 +108,14 @@ public class Final_Boss : MonoBehaviour
 
     private void Die()
     {
-        anim.SetBool("isDead", true);
-        anim.speed = 1f;                      // just in case
-        anim.Play("Die", 0, 0f);             // force play the 'dead' state on layer 0
+        if (isDead) return;
+        isDead = true;
+
+        if (anim != null)
+        {
+            anim.speed = 1f;
+            anim.Play("Die", 0, 0f);
+        }
 
         var col = GetComponent<Collider2D>();
         if (col) col.enabled = false;
@@ -118,7 +128,35 @@ public class Final_Boss : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        this.enabled = false;                  // stops your Translate() loop :contentReference[oaicite:0]{index=0}
-        Destroy(gameObject, 2f);               // match your dead clip length
+
+        StartCoroutine(DeathSequence());
     }
+
+    private IEnumerator DeathSequence()
+    {
+        float waitTime = Mathf.Max(victoryDelaySeconds, GetClipLengthSafe("Die"));
+        yield return new WaitForSeconds(waitTime);
+
+        if (victoryScreen != null)
+            victoryScreen.SetActive(true);
+
+        Destroy(gameObject, 0f);
+        Time.timeScale = 0f;
+
+    }
+
+    private float GetClipLengthSafe(string clipName)
+    {
+        if (anim == null || anim.runtimeAnimatorController == null) return 0f;
+        var clips = anim.runtimeAnimatorController.animationClips;
+        if (clips == null) return 0f;
+        foreach (var c in clips)
+        {
+            if (c != null && c.name == clipName)
+                return c.length;
+        }
+        return 0f;
+    }
+
+
 }
