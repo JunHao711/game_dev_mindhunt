@@ -14,7 +14,6 @@ public class boss_level2 : MonoBehaviour
     private bool isattacking = false;
 
     public int currentHealth, maxHealth, damageAmount;
-    private bool isDead = false;
 
     public Bosshealthbar bosshealthbar;
 
