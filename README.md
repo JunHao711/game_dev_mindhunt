@@ -4,7 +4,8 @@
 - Unity 2019.4.40f1
 
 ## WebGL
--
+- https://sharedpnnqgrru.labs.coursera.org/
+- Alternative - https://junhao711.itch.io/mindhunt-v4
 
 ## How to open this project
 1. Install Unity 2019.4.40f1 with *WebGL Build Support*
