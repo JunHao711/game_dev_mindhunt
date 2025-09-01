@@ -46,12 +46,9 @@ public class Dialog : MonoBehaviour
             "It's too late to turn back now, be careful and keep moving forward."
         },
         new string[] {
-            "Boss: You dare challenge me?",
-            "Player: I will stop you no matter what!"
-        },
-        new string[] {
-            "Boss: You dare challenge me?",
-            "Player: I will stop you no matter what!"
+            "Where am I now? Is this a cave? Or underground?",
+            "And there seem to be the remains of a city in the distance...",
+            "Forget it, let's just keep going."
         },
     };
 
