@@ -103,15 +103,22 @@ public class Final_Boss : MonoBehaviour
 
     private void Die()
     {
-        if (explosionEffect != null)
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        anim.SetBool("isDead", true);
+        anim.speed = 1f;                      // just in case
+        anim.Play("Die", 0, 0f);             // force play the 'dead' state on layer 0
 
-        // 关掉所有 2D 碰撞体
-        foreach (var col in GetComponents<Collider2D>())
-            col.enabled = false;
+        var col = GetComponent<Collider2D>();
+        if (col) col.enabled = false;
 
-        // 停止本脚本逻辑并销毁对象（给点延迟让特效播放）
-        enabled = false;
-        Destroy(gameObject, 2f);
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        this.enabled = false;                  // stops your Translate() loop :contentReference[oaicite:0]{index=0}
+        Destroy(gameObject, 2f);               // match your dead clip length
     }
 }
