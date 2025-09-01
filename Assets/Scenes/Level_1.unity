@@ -15169,7 +15169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_health: 0
-  max_health: 5
+  max_health: 10
   healthPickupAmount: 2
   healthbar: {fileID: 6337274}
   immortalTime: 2

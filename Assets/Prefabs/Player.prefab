@@ -264,8 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_health: 0
-  max_health: 5
-  damage: 1
+  max_health: 10
   healthPickupAmount: 2
   healthbar: {fileID: 0}
   immortalTime: 2
